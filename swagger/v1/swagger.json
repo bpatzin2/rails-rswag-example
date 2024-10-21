@@ -215,12 +215,8 @@
   },
   "servers": [
     {
-      "url": "https://{defaultHost}",
-      "variables": {
-        "defaultHost": {
-          "default": "www.example.com"
-        }
-      }
+      "url": "/test-path",
+      "description": "Local server"
     }
   ]
 }
