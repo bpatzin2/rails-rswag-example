@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: rails_rswag_example_development
+
+test:
+  <<: *default
+  database: rails_rswag_example_test
+
+production:
+  <<: *default
+  database: rails_rswag_example_production
+  username: rails_rswag_example
+  password: <%= ENV['RAILS_RSWAG_EXAMPLE_DATABASE_PASSWORD'] %>
