@@ -1,6 +1,6 @@
 require 'swagger_helper'
 
-RSpec.describe 'Internal::Projects API', type: :request do
+RSpec.describe 'Internal::Projects API', type: :request, swagger_doc: 'internal/v1/swagger.json' do
   path '/internal/projects' do
     get 'Retrieves all projects' do
       tags 'Internal Projects'

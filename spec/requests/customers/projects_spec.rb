@@ -1,7 +1,6 @@
-# spec/requests/customers/projects_spec.rb
 require 'swagger_helper'
 
-RSpec.describe 'Customers::Projects API', type: :request do
+RSpec.describe 'Customers::Projects API', type: :request, swagger_doc: 'customers/v1/swagger.json' do
   path '/customers/projects' do
     get 'Retrieves all projects' do
       tags 'Customer Projects'
