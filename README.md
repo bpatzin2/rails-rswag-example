@@ -1,24 +1,53 @@
-# README
+# Rails Multi-API OpenAPI with rswag and Sorbet
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Overview
 
-Things you may want to cover:
+This Rails application demonstrates how to host multiple OpenAPI schemas for a single Rails app using rswag. It showcases two different APIs: "internal" and "customers" as examples.
 
-* Ruby version
+## Brian's Todo List for This Project
 
-* System dependencies
+- [x] Setup rswag
+- [x] Host multiple API schemas
+- [x] Custom endpoints for hosting Swagger UIs (so they can be separated and authed)
+- [ ] Incorporate Sorbet
+- [ ] Custom endpoints for hosting schema JSONs (so they can be authed)
+- [ ] UI and API URLs should align and include version number
+- [ ] Code-gen Python and TypeScript clients and write integration tests for each
+- [ ] Include "intended benifits" or something like that in this README
+- [ ] Improve "how it works" section below
 
-* Configuration
+## How It Works
 
-* Database creation
+This application uses rswag to generate and serve OpenAPI documentation for two separate APIs within the same Rails application. The `swagger_helper.rb` file defines the structure for both API schemas, while the `routes.rb` file sets up the endpoints for serving the documentation and UI.
 
-* Database initialization
+The `rswag_api.rb` initializer configures how the API documentation is served, including a custom filter to adjust the server URL based on the requested API.
 
-* How to run the test suite
+[Rswag](https://github.com/rswag/rswag) is broken down into three main components:
+1. Generating the OpenAPI file
+2. Serving the file for download
+3. Serving the UI for API exploration
 
-* Services (job queues, cache servers, search engines, etc.)
+## Setup Instructions
 
-* Deployment instructions
+1. Clone the repository
+2. Install Ruby 3.3.0 (if not already installed)
+3. Install PostgreSQL (if not already installed)
+4. Run `bundle install` to install dependencies
+5. Run `rails db:create db:migrate` to set up the database
+6. Start the Rails server with `rails s`
 
-* ...
+## Accessing the API Documentation
+
+### Swagger UI URLs
+- Internal API: `http://localhost:3000/internal/api-docs`
+- Customers API: `http://localhost:3000/customers/api-docs`
+
+### API Schema Download URLs
+- Internal API: `http://localhost:3000/internal/api-docs/internal/v1/swagger.json`
+- Customers API: `http://localhost:3000/customers/api-docs/customers/v1/swagger.json`
+
+## Key Files
+TODO: Explain what each file does
+- Swagger Helper: `app/helpers/swagger_helper.rb`
+- Routes: `config/routes.rb`
+- Initializers: `config/initializers/rswag_api.rb` and `config/initializers/rswag_ui.rb`
