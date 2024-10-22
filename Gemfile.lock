@@ -229,6 +229,12 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.0.0)
+    sorbet (0.5.11609)
+      sorbet-static (= 0.5.11609)
+    sorbet-runtime (0.5.11609)
+    sorbet-static (0.5.11609-aarch64-linux)
+    sorbet-static (0.5.11609-universal-darwin)
+    sorbet-static (0.5.11609-x86_64-linux)
     spring (4.2.1)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
@@ -299,6 +305,8 @@ DEPENDENCIES
   rswag-ui
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
+  sorbet
+  sorbet-runtime
   spring
   turbolinks (~> 5)
   tzinfo-data

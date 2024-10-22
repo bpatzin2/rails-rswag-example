@@ -9,12 +9,15 @@ This Rails application demonstrates how to host multiple OpenAPI schemas for a s
 - [x] Setup rswag
 - [x] Host multiple API schemas
 - [x] Custom endpoints for hosting Swagger UIs (so they can be separated and authed)
-- [ ] Incorporate Sorbet
+- [x] Incorporate Sorbet
+- [ ] Add Sorbet types and specs to other endpoints
+- [ ] Crisp readme with code snippets and UI screenshots
 - [ ] Custom endpoints for hosting schema JSONs (so they can be authed)
 - [ ] UI and API URLs should align and include version number
 - [ ] Code-gen Python and TypeScript clients and write integration tests for each
 - [ ] Include "intended benifits" or something like that in this README
 - [ ] Improve "how it works" section below
+- [ ] Investigate using refs in the OpenAPI schema
 
 ## How It Works
 

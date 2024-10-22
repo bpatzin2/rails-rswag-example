@@ -5,7 +5,7 @@
     "version": "v1"
   },
   "paths": {
-    "/internal/projects": {
+    "/projects": {
       "get": {
         "summary": "Retrieves all projects",
         "tags": [
@@ -26,11 +26,50 @@
                       },
                       "name": {
                         "type": "string"
+                      },
+                      "tasks": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "text": {
+                              "type": "string"
+                            },
+                            "optional_field": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "text",
+                            "optional_field"
+                          ]
+                        }
+                      },
+                      "address": {
+                        "type": "object",
+                        "properties": {
+                          "street": {
+                            "type": "string"
+                          },
+                          "city": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "street",
+                          "city"
+                        ]
                       }
                     },
                     "required": [
                       "id",
-                      "name"
+                      "name",
+                      "tasks",
+                      "address"
                     ]
                   }
                 }

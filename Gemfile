@@ -7,6 +7,9 @@ gem 'rswag-api'
 gem 'rswag-ui'
 gem 'rswag-specs'
 
+gem 'sorbet', :group => :development
+gem 'sorbet-runtime'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.7', '>= 6.1.7.9'
 # Use postgresql as the database for Active Record

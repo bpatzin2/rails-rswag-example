@@ -1,23 +1,22 @@
 require 'swagger_helper'
 
 RSpec.describe 'Internal::Projects API', type: :request, swagger_doc: 'internal/v1/swagger.json' do
-  path '/internal/projects' do
+  path '/projects' do
     get 'Retrieves all projects' do
       tags 'Internal Projects'
       produces 'application/json'
 
       response '200', 'successful' do
         schema type: :array,
-               items: {
-                 type: :object,
-                 properties: {
-                   id: { type: :integer },
-                   name: { type: :string }
-                 },
-                 required: ['id', 'name']
-               }
+               items: ::Internal::ProjectsController::Project.to_json_schema
 
-        run_test!
+               let!(:project) { ::Project.create(name: 'Test Project') }
+
+               run_test! do |response|
+                 data = JSON.parse(response.body)
+                 expect(data).not_to be_empty
+                 expect(data.first['name']).to eq('Test Project')
+               end      
       end
     end
 
